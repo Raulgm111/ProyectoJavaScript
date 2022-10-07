@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sumar Botones</h1>
+    <button id="boton1">4</button>
+    <button id="boton2">6</button>
+    <button id="boton3">1</button>
+    <button id="boton4">2</button>
+    <button id="boton2">10</button>
+    <button id="boton3">100</button>
+    <button id="boton4">8</button>
+    <h2 id="resultado"></h2>
+</body>
+<script>
+        var suma=0;
+window.onload = function(){
+      //BUSCAMOS TODOS LOS OBJETOS QUE SEAN DE TIPO BUTTON
+      var botones = document.getElementsByTagName("button");
+      //RECORREMOS TODOS LOS BOTONES
+      //POR REFENRENIA
+      //TENEMOS DOS TIPOS, RECORRE LOS INDICES in
+      for(var inidce in botones){
+        console.log("Inidce "+indice)
+      }
+      //RECORRES LOS OBJETO of
+      for(var boton of botones){
+        console.log("Boton "+boton.innerText)
+      }
+      for(var i=0;i<botones.length;i++){
+        //RECUPERAMOS CADA BOTON
+        var boton = botones[i];
+        //ASOCIAMOS EL BOTON AL EVENTO
+        boton.addEventListener("click",function(){
+            this.style.backgroundColor = "red";
+            var botonS=parseInt(this.innerText);
+            suma+=botonS;
+            
+            document.getElementById("resultado").innerText =
+            "La suma es "+suma;
+            });
+      }
+}
+</script>
+</html>

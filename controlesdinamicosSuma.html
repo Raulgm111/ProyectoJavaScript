@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<h1>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Generar controles dinamicos</h1>
+    <input type="range" id="rango" min="1" max="50" value="1" 
+    onchange="crearCheckBox()"/>
+    <p id="valorrango">1</p>
+    <div id="Clabel"></div>
+    <div id="capa"></div>
+    <h1 id="sumaNumeros"></h1>
+</body>
+<script>
+    function crearCheckBox(){
+        var capa = document.getElementById("capa");
+        var rango = document.getElementById("rango");
+        document.getElementById("valorrango").innerHTML= rango.value;
+        var numeroBox = parseInt(rango.value);
+        capa.innerText="";
+        var suma=0;
+        for(var i = 1; i<=numeroBox; i++){
+            var numero = document.createElement("label");
+            var box = document.createElement("input");
+            var aleatorio =  parseInt(Math.random() * 100) +1;
+            box.type = "checkbox";
+            numero.innerText= aleatorio;
+            box.value = aleatorio;
+            capa.appendChild(numero);
+            capa.appendChild(box);
+            box.addEventListener("click", function(){
+                var value = parseInt(this.value);
+                if(this.checked==true){
+                 suma+=value;
+                }else{
+                    suma-=value;
+
+                }
+                document.getElementById("sumaNumeros").innerText=suma;
+            });
+        }
+        
+    }
+</script>
+</html>

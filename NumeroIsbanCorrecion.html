@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<br lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <label>Introduzca numero ISBAN</label></br>
+    <input type="text" id="cajaisban"/>
+    <button type="button" onclick="isban()">
+        Correcion isban
+    </button>
+    <h2 id="resultado"></h2>
+    <script>
+        function isban(){
+            var caja = document.getElementById("cajaisban");
+            var cajaisban = parseInt(caja.value);
+            var suma=0;
+
+        for(var i=0;i<cajaisban.length;i++){
+            var numero = cajaisban.charAt(i);
+            var numero1 = parseInt(numero);
+            var multiplicacion= parseInt(numero1*(i+1));
+            suma +=multiplicacion;
+        }
+
+        if(suma%11 ==0){
+            document.getElementById("resultado").innerText = "ISBN Correcto"
+        }else{
+            document.getElementById("resultado").innerText = "ISBN Incorrecto"
+        }
+
+        }
+    </script>
+    
+</body>
+</html>

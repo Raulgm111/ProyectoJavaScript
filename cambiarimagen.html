@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img  id="imagen1" style="width: 50%" src="../images/perro1.jpg";>
+    <img  id="imagen2" style="width: 50%" src="../images/perro2.jpg";>  
+</body>
+<script>
+    window.onload = function(){
+        var imagenes = document.getElementsByTagName("img");
+        for(var img of imagenes){
+            img.addEventListener("mouseover", function(){
+                this.src = "../images/perro2.jpg"
+            });
+            img.onmouseout = function(){
+                this.src = "../images/perro1.jpg"
+            }
+        }
+    }
+</script>
+</html>
