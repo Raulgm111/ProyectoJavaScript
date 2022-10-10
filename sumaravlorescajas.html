@@ -9,7 +9,7 @@
 <body>
     <h1>Sumar valores cajas con Random</h1>
 <form>
-    <label onclick="cearTabla()">Par</label>
+    <label onchange="cearTabla()">Par</label>
     <input type="radio" id="par">
     <label>Impar</label>
     <input type="radio" id="impar">
@@ -26,12 +26,12 @@
         var min=0;
         var rango = ((max - min) / 2) - 1;
         var random = 2 * Math.floor(Math.random() * rango) +1 +min;
-        console.log(random);
         capa.innerText="";
         for(var i = 1; i<=4; i++){
             var TablaImpar =document.createElement("input");
             TablaImpar.type = "text";
             capa.appendChild(TablaImpar);
+            TablaImpar.value= random;
 
         }
     }
