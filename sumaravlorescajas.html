@@ -6,33 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body onload="cearTabla()">
     <h1>Sumar valores cajas con Random</h1>
 <form>
-    <label onchange="cearTabla()">Par</label>
+    <label>Par</label>
     <input type="radio" id="par">
     <label>Impar</label>
     <input type="radio" id="impar">
 </form>
     <div id="capa"></div>
-    <button type="button" onclick="cearTabla()">Sumar Cajas</button>
+    <button type="button" id="botonsuma">Sumar Cajas</button>
+    <h2 id="resultado"></h2>
 </body>
 <script>
     function cearTabla(){
         var capa = document.getElementById("capa");
         var par = document.getElementById("par");
         var impar = document.getElementById("impar");
-        var max=50;
-        var min=0;
-        var rango = ((max - min) / 2) - 1;
-        var random = 2 * Math.floor(Math.random() * rango) +1 +min;
         capa.innerText="";
+        suma=0;
         for(var i = 1; i<=4; i++){
             var TablaImpar =document.createElement("input");
+            var espacio =document.createElement("br");
+            var random = parseInt(Math.random() * 100) +1;
             TablaImpar.type = "text";
-            capa.appendChild(TablaImpar);
             TablaImpar.value= random;
-
+            capa.appendChild(TablaImpar);
+            capa.appendChild(espacio);
+                if((TablaImpar.value%2)==0){
+                    botonsuma.addEventListener("click", function(){
+                    var value = parseInt(TablaImpar.value);
+                     suma+=value;
+                    document.getElementById("resultado").innerText=suma;
+            });
+                }
+            
         }
     }
 </script>
